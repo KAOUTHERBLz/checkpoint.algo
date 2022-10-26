@@ -1,0 +1,79 @@
+
+      {
+        var n = str.length;
+        var res = 0,
+          curr_len = 0;
+          BEGIN
+        for (var i = 0; i < n; i++)
+        {
+         
+          if (str[i] !== " ") curr_len++;
+          
+          else
+          {
+            res = Math.max(res, curr_len);
+            curr_len = 0;
+            END
+          }
+        }
+ 
+       
+        return Math.max(res, curr_len);
+      }
+ 
+      //The number of words in the sentence
+
+      static final int OUT = 0;
+    static final int IN = 1;
+      
+    
+    static int countWords(String str)
+    {
+        int state = OUT;
+        int wc = 0;  
+        int i = 0;
+         
+        
+        while (i < str.length())
+        {
+            
+            if (str.charAt(i) == ' ' || str.charAt(i) == '\n'
+                    || str.charAt(i) == '\t')
+                state = OUT;
+                 
+      
+           
+            else if (state == OUT)
+            {
+                state = IN;
+                ++wc;
+            }
+      
+            
+            ++i;
+        }
+        return wc;
+    }
+      
+    
+//The number of vowels in the sentence
+
+          
+        
+        int vCount = 0, cCount = 0;  
+          
+        
+        String str = "This is a really simple sentence";  
+          
+        
+        str = str.toLowerCase();  
+          
+        for(int i = 0; i < str.length(); i++) {  
+             
+            if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u') {  
+                
+                vCount++;  
+            }  
+           
+            }  
+        System.out.println("Number of vowels: " + vCount);
